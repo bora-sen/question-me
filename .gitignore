@@ -15,6 +15,10 @@
 # production
 /client/build
 
+# notes
+/notes.txt
+/server/.env
+
 # misc
 .DS_Store
 .env.local
