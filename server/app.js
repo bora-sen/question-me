@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const rest = require('./rest');
+const rest = require('./rest')
 
 
 
