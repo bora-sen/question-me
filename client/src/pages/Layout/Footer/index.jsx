@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className='bg-highlight text-stroke'>
+    <footer className='bg-highlight text-stroke mt-24'>
       <div className='pt-2 flex h-auto items-center justify-around'>
     <span className='text-3xl font-display mb-4 sm:ml-2 '>questionMe</span>
       <div className='font-content'>

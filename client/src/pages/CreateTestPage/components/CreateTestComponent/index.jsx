@@ -47,7 +47,7 @@ function CreateTestComponent() {
       axios.post('http://localhost:5000/',test_obj).then((req,res) => {
         if(req.status === 200){
           console.log("Test Succesfuly created!");
-          setTest_url('localhost/solve/'+access_code);
+          setTest_url('http://localhost:3000/solve/'+access_code);
         }
 
       })
@@ -75,7 +75,7 @@ function CreateTestComponent() {
           <button className='bg-highlight p-2 rounded-xl text-white_main mb-4 text-3xl font-bold' onClick={e => {handleCreateTestButton(e)}}>Create Test</button>
       </div>
       <div className='text-center font-bold'>
-        <span className=''>test url : {test_url}</span>
+        <a href={test_url} className=''>test url : {test_url}</a>
       </div>
 
 
