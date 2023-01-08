@@ -1,4 +1,5 @@
 import React from 'react'
+//import style from './question_component.module.css';
 
 function QuestionComponent({questionObject,questionsArray}) {
     let nthQuestion = questionObject.id;
@@ -43,9 +44,11 @@ function QuestionComponent({questionObject,questionsArray}) {
 
     console.log("Click Handled.");
     console.log(newQuest);
-    questionsArray.push(newQuest);
-    console.log(questionsArray);
+    questionObject = newQuest;
+    console.log(questionObject);
 
+    questionsArray.push(questionObject);
+    console.log(questionsArray);
 
 
 }
@@ -55,34 +58,43 @@ function QuestionComponent({questionObject,questionsArray}) {
 
 
   return (
-        <div className='flex flex-col' key={nthQuestion}>
-            <span>Question {nthQuestion}</span>
-            <label htmlFor="input_title">Title: </label>
-            <input type="text" id={"input_title_"+nthQuestion}/>
-            <span>Choices</span>
-            <ul>
-                <li>
-                    <label htmlFor={"input_choice_a_"+nthQuestion}>{"Choice a )"}</label>
-                    <input type="text" id={"input_choice_a_"+nthQuestion} />
-                    <input name={"isTrue_"+nthQuestion} type="radio" id={"is_a_true_"+nthQuestion}/>
-                </li>
-                <li>
-                    <label htmlFor={"input_choice_b_"+nthQuestion}>{"Choice b )"}</label>
-                    <input type="text" id={"input_choice_b_"+nthQuestion} />
-                    <input name={"isTrue_"+nthQuestion} type="radio" id={"is_b_true_"+nthQuestion}/>
-                </li>
-                <li>
-                    <label htmlFor={"input_choice_c_"+nthQuestion}>{"Choice c )"}</label>
-                    <input type="text" id={"input_choice_c_"+nthQuestion} />
-                    <input name={"isTrue_"+nthQuestion} type="radio" id={"is_c_true_"+nthQuestion}/>
-                </li>
-                <li>
-                    <label htmlFor={"input_choice_d_"+nthQuestion}>{"Choice d )"}</label>
-                    <input type="text" id={"input_choice_d_"+nthQuestion} />
-                    <input name={"isTrue_"+nthQuestion} type="radio" id={"is_d_true_"+nthQuestion}/>
-                </li>
-            </ul>
-            <button onClick={e => {handleQuestionSubmit(e,nthQuestion)}}>Submit Question</button>
+        <div className='block text-center mb-4 bg-white_main p-4 ' key={nthQuestion}>
+            <div className='flex-col'>
+                <span className='font-display text-2xl sm:text-3xl'>Question {nthQuestion}</span>
+                <div className='flex justify-center items-center mb-4 mt-4'>
+                    <label className='mr-2' htmlFor="input_title">Title: </label>
+                    <input className='w-full h-8' placeholder='Enter question title' type="text" id={"input_title_"+nthQuestion}/>
+                </div>
+
+                <div className='mb-4 flex justify-between'>
+                    <span className='text-2xl font-title-1 text-stroke ml-12'>Choices</span>
+                    <span className='text-2xl font-title-1 text-stroke mr-12'>True?</span>
+                </div>
+                <ul className=''>
+                    <li className='mb-3'>
+                        <label className='' htmlFor={"input_choice_a_"+nthQuestion}>{"Choice a )"}</label>
+                        <input className='w-68 sm:w-3/4 h-8 ml-2' placeholder='Enter a choice..' type="text" id={"input_choice_a_"+nthQuestion} />
+                        <input className='ml-2' name={"isTrue_"+nthQuestion} type="radio" id={"is_a_true_"+nthQuestion}/>
+                    </li>
+                    <li className='mb-3'>
+                        <label className='' htmlFor={"input_choice_b_"+nthQuestion}>{"Choice b )"}</label>
+                        <input className='w-68 sm:w-3/4 h-8 ml-2' placeholder='Enter a choice..' type="text" id={"input_choice_b_"+nthQuestion} />
+                        <input className='ml-2' name={"isTrue_"+nthQuestion} type="radio" id={"is_b_true_"+nthQuestion}/>
+                    </li>
+                    <li className='mb-3'>
+                        <label className='' htmlFor={"input_choice_c_"+nthQuestion}>{"Choice c )"}</label>
+                        <input className='w-68 sm:w-3/4 h-8 ml-2' placeholder='Enter a choice..' type="text" id={"input_choice_c_"+nthQuestion} />
+                        <input className='ml-2' name={"isTrue_"+nthQuestion} type="radio" id={"is_c_true_"+nthQuestion}/>
+                    </li>
+                    <li className='mb-3'>
+                        <label className='' htmlFor={"input_choice_d_"+nthQuestion}>{"Choice d )"}</label>
+                        <input className='w-68 sm:w-3/4 h-8 ml-2' placeholder='Enter a choice..' type="text" id={"input_choice_d_"+nthQuestion} />
+                        <input className='ml-2' name={"isTrue_"+nthQuestion} type="radio" id={"is_d_true_"+nthQuestion}/>
+                    </li>
+                </ul>
+            </div>
+
+            <button className='bg-highlight text-white_main rounded-xl p-2' onClick={e => {handleQuestionSubmit(e,nthQuestion)}}>Submit Question</button>
         </div>
   )
 }

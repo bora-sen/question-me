@@ -3,7 +3,3 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Hind&family=Poppins&display=swap');
-
-*{
-    border: solid pink 1px;
-}

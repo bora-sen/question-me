@@ -3,8 +3,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Question = require('./models/question.js');
+const Test = require('./models/test');
 dotenv.config()
 
+
+
+let tests = [];
 
 
 let con_string = process.env.CON_STR;
@@ -18,7 +22,7 @@ mongoose.connect(con_string).then(() => {
     app.use(cors({ credentials: true }));
 
 
-    app.get("/",(req,res) =>{
+    app.get("/allTests/",(req,res) =>{
         try{
 
             console.log("===================================");
@@ -26,7 +30,7 @@ mongoose.connect(con_string).then(() => {
             console.log("===================================");
 
 
-            Question.find({}).then((query_res) => {
+            Test.find({}).then((query_res) => {
                 res.send(query_res);
                 console.log("All question data is sent...");
             });
@@ -38,6 +42,28 @@ mongoose.connect(con_string).then(() => {
         }
     })
 
+    app.get("/getTest/:aT",(req,res) =>{
+        try{
+            let localToken = req.params.aT;
+            console.log("Token Arrived! :"+localToken);
+
+            console.log("===================================");
+            console.log("New GET Request Recieved");
+            console.log("===================================");
+
+
+            Test.find({"accessToken":localToken}).then((query_res) => {
+                res.send(query_res);
+                console.log("All question data is sent...");
+            });
+
+
+
+        }catch(err){
+            console.log(err.message);
+            res.send(err.message)
+        }
+    })
 
 
     app.post("/",cors(),(req,res) => {
@@ -47,21 +73,16 @@ mongoose.connect(con_string).then(() => {
             console.log(req.body);
             console.log("===================================");
 
+            tests.push(req.body);
+            console.log(tests);
+
             res.send("POST Request Recieved. | Everything went well.")
+            Test.create(req.body).then(() => {console.log("Created Test ")}).catch(err => {console.log(err.message)});
+
         }catch(err){
             console.log(err.message);
         }
     })
-
-
-    app.put("/",cors(),(req,res) => {
-        res.send('Hello From Server');
-    })
-
-    app.delete("/",cors(),(req,res) => {
-        res.send('Hello From Server');
-    })
-
 
     app.listen(5000,() => {
         console.log("Server is started & listening port: [5000]");

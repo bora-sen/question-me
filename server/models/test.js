@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 
 const TestSchema = mongoose.Schema({
-    questions:Array,
+    title:String,
+    accessToken:String,
+    questions:[]
 })
 
 
