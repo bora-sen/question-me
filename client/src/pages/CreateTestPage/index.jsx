@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '../Layout'
+import { Footer, Header } from '../Layout'
 import MainContainer from '../Layout/MainContainer'
 import CreateTestComponent from './components/CreateTestComponent'
 
@@ -9,6 +9,7 @@ function CreateTestPage() {
     <MainContainer>
       <Header />
       <CreateTestComponent />
+      <Footer />
     </MainContainer>
     </>
   )

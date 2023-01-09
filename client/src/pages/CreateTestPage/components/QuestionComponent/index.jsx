@@ -21,13 +21,11 @@ function QuestionComponent({questionObject,questionsArray}) {
     let isTrue_c = document.getElementById('is_c_true_'+nthQuestion).checked;
     let isTrue_d = document.getElementById('is_d_true_'+nthQuestion).checked;
 
-    let trueChoiceId = 0;
-
-
-    if(isTrue_a){trueChoiceId = 1}
-    else if(isTrue_b){trueChoiceId = 2}
-    else if(isTrue_c){trueChoiceId = 3}
-    else if(isTrue_d){trueChoiceId = 4}
+    let true_id = 0;
+    if(isTrue_a){true_id = 1}
+    else if(isTrue_b){true_id = 2}
+    else if(isTrue_c){true_id = 3}
+    else if(isTrue_d){true_id = 4}
 
 
     let newQuestChoices = [
@@ -39,7 +37,9 @@ function QuestionComponent({questionObject,questionsArray}) {
     let newQuest = {
         id:nthQuestion,
         title:newQuestTitle,
-        choices:newQuestChoices
+        trueChoiceId:true_id,
+        choices:newQuestChoices,
+
     }
 
     console.log("Click Handled.");
@@ -49,10 +49,7 @@ function QuestionComponent({questionObject,questionsArray}) {
 
     questionsArray.push(questionObject);
     console.log(questionsArray);
-
-
 }
-
 
 
 
@@ -93,7 +90,6 @@ function QuestionComponent({questionObject,questionsArray}) {
                     </li>
                 </ul>
             </div>
-
             <button className='bg-highlight text-white_main rounded-xl p-2' onClick={e => {handleQuestionSubmit(e,nthQuestion)}}>Submit Question</button>
         </div>
   )

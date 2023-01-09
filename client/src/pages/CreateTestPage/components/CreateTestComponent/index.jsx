@@ -1,19 +1,18 @@
 import React from 'react'
 import QuestionComponent from '../QuestionComponent';
 import axios from 'axios';
-import md5 from 'md5';
+import {v4 as uuidv4} from 'uuid'
 
 function CreateTestComponent() {
 
+  const [showUrl,setShowUrl] = React.useState(false);
 
   let [test_url,setTest_url] = React.useState("localhost");
-  
-
-  let [InputTest,setInputTest] = React.useState();
 
   let [createdId,setCreatedId] = React.useState(1);
 
   const [questions,setQuestions] = React.useState([]);
+  setQuestions([]);
   const [inputs,setInputs] = React.useState([]);
 
     function handleAddQuestionButton(e){
@@ -26,6 +25,7 @@ function CreateTestComponent() {
       }])
       let inc = createdId +1;
       setCreatedId(inc);
+
       console.log("New Create ID: "+createdId);
     }
 
@@ -35,13 +35,14 @@ function CreateTestComponent() {
       e.preventDefault();
       console.log("CreateTestButton is handled!");
       let test_name = document.getElementById('input_test_name').value;
-      let access_code = md5(Math.floor(Math.random() * 1000000));
+      let access_code = uuidv4();
       console.log(access_code);
 
       let test_obj = {
         title:test_name,
         accessToken:access_code,
-        questions:questions
+        questions:questions,
+
       };
       console.log(test_obj);
       axios.post('http://localhost:5000/',test_obj).then((req,res) => {
@@ -51,6 +52,7 @@ function CreateTestComponent() {
         }
 
       })
+      setShowUrl(true);
     }
 
 
@@ -74,10 +76,13 @@ function CreateTestComponent() {
           </div>
           <button className='bg-highlight p-2 rounded-xl text-white_main mb-4 text-3xl font-bold' onClick={e => {handleCreateTestButton(e)}}>Create Test</button>
       </div>
-      <div className='text-center font-bold'>
-        <a href={test_url} className=''>test url : {test_url}</a>
-      </div>
 
+
+            {showUrl && 
+            <div className='text-center font-bold mt-4'>
+              <a href={test_url} className='bg-tertiary text-white_main p-4 rounded-xl'>Go to this link for solve the test! - {test_url}</a>
+            </div>
+            }
 
     </section>
   )

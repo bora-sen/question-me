@@ -13,6 +13,13 @@ function SolveSpesificTest() {
   const [isLoading,setIsLoading] = React.useState(true);
   const [test_obj,setTestObj] = React.useState({});
 
+
+  //const [answerObject,setAnswerObject] = React.useState({});
+
+
+
+
+
   const {accessToken} = useParams();
 
   React.useEffect(() => {
@@ -24,6 +31,24 @@ function SolveSpesificTest() {
   },[])
 
 
+
+
+  function handleSolveSubmit(e){
+    e.preventDefault();
+    console.log("submit handle worked.");
+
+
+  }
+
+
+  /*
+  let isTrueAnswer = (true_id,input_id) => {
+    return true_id === input_id ? true : false
+  }
+  let trueAnswerclass = (isTrue) => {
+    return isTrue === true ? "true_class" : ""
+  }
+  */
 
 
   if(!isLoading){
@@ -46,13 +71,15 @@ function SolveSpesificTest() {
                   <div className='flex'>
                     <span className='mx-2'>Question : </span>
                     <h3 className=''>{question.title}</h3>
+                    <h3 className='ml-24'>{question.trueChoiceId}</h3>
                     <span className='mx-2'> ?</span>
                   </div>
 
                 <ul className='mt-4'>
                   {question.choices.map(choice => {
+
                     return (
-                      <li className='hover:bg-white_main' key={choice.id}>
+                      <li id={`solve_input_q_${question.id}_c_${choice.id}`} className='hover:bg-white_main' key={choice.id}>
                         <input className='mx-3' type="radio" name={question.title} />
                         <span className=''>{choice.title}</span>
                       </li>
@@ -64,7 +91,7 @@ function SolveSpesificTest() {
               )
             })}
             <div className='flex justify-center'>
-              <button className='bg-highlight p-2 text-3xl font-bold text-white_main rounded-xl hover:bg-tertiary transition-colors' onClick={e => {console.log(e)}}>Submit Test</button>
+              <button className='bg-highlight p-2 text-3xl font-bold text-white_main rounded-xl hover:bg-tertiary transition-colors' onClick={e => {handleSolveSubmit(e)}}>Submit Test</button>
             </div>
 
           </div>

@@ -1,6 +1,6 @@
-import {React} from 'react';
+import React from 'react';
 import {Route,Routes} from 'react-router-dom';
-import { CreateTestPage, LandingPage, SolveTestPage,SolveSpesificTest } from './pages';
+import { CreateTestPage, LandingPage, SolveTestPage,SolveSpesificTest,notFoundPage } from './pages';
 
 
 function MainRouter() {
@@ -10,6 +10,7 @@ function MainRouter() {
         <Route path="/create" element={<CreateTestPage />} />
         <Route path="/solve/:accessToken" element={<SolveSpesificTest />} />
         <Route path="/solve/" element={<SolveTestPage />} />
+        <Route path="*" element={<notFoundPage />} />
     </Routes>
   )
 }
