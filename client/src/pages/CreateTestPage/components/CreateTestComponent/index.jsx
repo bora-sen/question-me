@@ -42,7 +42,6 @@ function CreateTestComponent() {
         title:test_name,
         accessToken:access_code,
         questions:questions,
-
       };
       console.log(test_obj);
       axios.post('http://localhost:5000/',test_obj).then((req,res) => {
@@ -50,7 +49,6 @@ function CreateTestComponent() {
           console.log("Test Succesfuly created!");
           setTest_url('http://localhost:3000/solve/'+access_code);
         }
-
       })
       setShowUrl(true);
     }
