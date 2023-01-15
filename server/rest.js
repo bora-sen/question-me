@@ -35,8 +35,6 @@ mongoose.connect(con_string).then(() => {
                 console.log("All question data is sent...");
             });
 
-
-
         }catch(err){
             console.log(err.message);
         }
@@ -49,16 +47,11 @@ mongoose.connect(con_string).then(() => {
 
             console.log("===================================");
             console.log("New GET Request Recieved");
-            console.log("===================================");
-
-
+            console.log("===================================");-
             Test.find({"accessToken":localToken}).then((query_res) => {
                 res.send(query_res);
                 console.log("All question data is sent...");
             });
-
-
-
         }catch(err){
             console.log(err.message);
             res.send(err.message)
