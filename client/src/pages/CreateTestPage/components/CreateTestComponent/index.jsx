@@ -12,7 +12,7 @@ function CreateTestComponent() {
   let [createdId,setCreatedId] = React.useState(1);
 
   const [questions,setQuestions] = React.useState([]);
-  setQuestions([]);
+  //setQuestions([]);
   const [inputs,setInputs] = React.useState([]);
 
     function handleAddQuestionButton(e){

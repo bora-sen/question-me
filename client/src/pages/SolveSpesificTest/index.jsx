@@ -12,6 +12,9 @@ function SolveSpesificTest() {
 
   const [isLoading,setIsLoading] = React.useState(true);
   const [test_obj,setTestObj] = React.useState({});
+  const [questions_len,setQuestionsLen] = React.useState(0);
+
+  const [question_inputs,setQuestionInputs] = React.useState([]);
 
 
   //const [answerObject,setAnswerObject] = React.useState({});
@@ -27,6 +30,8 @@ function SolveSpesificTest() {
       console.log(res.data[0]);
       setTestObj(res.data[0]);
       setIsLoading(false);
+      setQuestionsLen(res.data[0].questions.length);
+      console.log(res.data[0].questions.length);
     }).catch(err => {console.log(err)});
   },[])
 
