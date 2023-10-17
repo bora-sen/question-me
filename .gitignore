@@ -8,6 +8,7 @@
 /server/node_modules
 /server/.pnp
 /server.pnp.js
+logs
 
 /node_modules
 
