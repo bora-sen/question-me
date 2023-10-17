@@ -1,11 +1,9 @@
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose")
 
 const TestSchema = mongoose.Schema({
-    title:String,
-    accessToken:String,
-    questions:[]
+  title: String,
+  accessLink: String,
+  questions: [],
 })
 
-
-module.exports = mongoose.model('Test',TestSchema);
+module.exports = mongoose.model("Test", TestSchema)
