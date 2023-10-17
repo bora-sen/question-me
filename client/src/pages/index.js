@@ -1,2 +1,5 @@
 export { default as CreateTest } from "./CreateTest"
 export { default as Landing } from "./Landing"
+export { default as SolveTest } from "./SolveTest"
+export { default as SolveTestLink } from "./SolveTestLink"
+export { default as Result } from "./Result"
