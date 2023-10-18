@@ -41,6 +41,7 @@ resultRouter.post("/create/", cors(), async (req, res) => {
       score,
       isPassed,
     })
+    //TODO: Return questions array with true or false property
     res.send(createResultResponse)
   } catch (err) {
     console.log(err.message)

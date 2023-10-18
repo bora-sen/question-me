@@ -31,7 +31,8 @@ function SolveTestLink() {
       questions: questionSolveRequests,
     }
     const testResultRes = await axios.post(`${import.meta.env.VITE_API_URL}/result/create`, testSolveRequestObject)
-    const {score,isPassed,accessLink} = await testResultRes.data
+    const {accessLink} = await testResultRes.data
+      //TODO: Fix redirection
       navigate(`/get-result/${await accessLink}`)
   }
 
