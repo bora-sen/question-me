@@ -8,8 +8,7 @@ function SolveTest() {
       <h2 className="fw-bold display-4 text-center">Solve Test</h2>
       <div className="col-lg-5 mx-auto">
         <p className="text-center w-50-lg mx-auto">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque adipisci non, cumque consequuntur magnam, aperiam facere dolor commodi,
-          repudiandae voluptatibus quisquam tenetur beatae ullam delectus!
+          Solve quiz with your name and share-link. You can view and share your results afterwards.
         </p>
       </div>
       <div className="container-lg text-center py-2">

@@ -30,11 +30,10 @@ function CreateTest() {
 
   return (
     <div className="container text-center">
-      <h1 className="display-3 fw-bold text-center">Hello World</h1>
+      <h1 className="display-3 fw-bold text-center">Create a Test</h1>
       <div className="col-lg-5 mx-auto">
         <p className="mx-auto">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut debitis quos esse excepturi modi autem quam id recusandae voluptas impedit iste mollitia
-          porro, totam dignissimos consectetur eveniet optio aliquid eligendi cupiditate? Dicta, cupiditate. Excepturi!
+          Create your tests here. Just fill questions and finish your test creation with "Finish Creating Test" button below.
         </p>
       </div>
       <div className="col-lg-5 mx-auto">
@@ -51,7 +50,7 @@ function CreateTest() {
           </button>
 
           <button onClick={(e) => createTest(e)} className="btn btn-primary">
-            Complete Test!
+            Finish Creating Test!
           </button>
         </div>
       </div>
