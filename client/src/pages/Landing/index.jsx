@@ -8,9 +8,9 @@ function Landing() {
         <div className="col-lg-6 mx-auto">
           <p className="lead mb-4 text-primary fw-semibold">Quickly create & solve tests with questionme</p>
         </div>
-        <div className="bg-primary overflow-hidden">
+        <div className="overflow-hidden">
           <img
-            src="https://via.placeholder.com/640x360/4f33"
+            src="/assets/images/online_survey.svg"
             className="img-fluid rounded-2 shadow-lg mb-4"
             width="700"
             height="500"
