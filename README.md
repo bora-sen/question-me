@@ -26,3 +26,25 @@
 | /test/all               | GET    | Gets All Tests                |
 | /result/create          | POST   | Generates A Result Object     |
 | /result/:accessLink     | GET    | Returns A Specified Result    |
+
+
+
+# Screenshots
+
+## Landing Page
+![Landing Page](./docs/ss/landing.jpg)
+
+## Create Test Page
+![Landing Page](./docs/ss/create-test-1.jpg)
+
+## Adding Questions
+![Landing Page](./docs/ss/create-test-2.jpg)
+
+## Solve a Test With Name
+![Landing Page](./docs/ss/solve-test-1.jpg)
+
+## Submit Your Answers
+![Landing Page](./docs/ss/solve-test-2.jpg)
+
+## View and share your result
+![Landing Page](./docs/ss/solve-test-3.jpg)
